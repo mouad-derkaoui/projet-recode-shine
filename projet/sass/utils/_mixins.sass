@@ -1,0 +1,22 @@
+@mixin flex($justify: center, $align: $justify, $direction: row)
+    display: flex
+    justify-content: $justify
+    align-items: $align
+    flex-direction: $direction
+
+
+@mixin responsive($device)
+    @if $device == "phone"
+        @media screen and (max-width: 600px)
+            @content
+    
+    @else if $device == "tablet"
+        @media screen and (max-width: 900px)
+            @content
+    
+    @else if $device == "small-laptop"
+        @media screen and (max-width: 1200px)
+            @content
+    
+    @else
+        @error "cette device n'existe pas chef"

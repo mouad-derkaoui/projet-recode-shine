@@ -1,0 +1,20 @@
+@use "../utils/_main" as utils
+
+.home-main
+    
+    &__title
+        @extend %title-2
+
+    &__image
+        width: 25rem
+        height: auto
+
+    &__list-ameliorations
+        display: grid
+        grid-template-columns: repeat(12, 1fr)
+        gap: 30px
+
+
+    &__list-amelioration-1
+        grid-column: 1 / -1
+        grid-row: 1 / 9

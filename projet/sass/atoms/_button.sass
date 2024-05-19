@@ -1,0 +1,45 @@
+@use "../utils/_main" as utils
+
+@mixin hover($color)
+    &:hover
+        background-color: darken($color, 10%)
+
+.button 
+    border-radius: 1rem
+    padding: 0.5rem 1.2rem
+    font-weight: 500
+    transition: 0.1s ease-in
+    @extend %paragraphe-m
+    @include utils.flex(center)
+    @extend %top-xs
+    
+    &:not(&__blue):hover
+        color: utils.$blue
+
+    &__icon
+        fill: inherit
+        margin-left: 0.5rem
+
+    &__blue
+        @extend .button
+        background-color: utils.$blue
+        color: utils.$white
+        fill: utils.$white
+        @include hover(utils.$blue)
+
+        // &:hover
+            //background-color: utils.$dark-blue
+        //     background-color: darken(utils.$blue, 20%)
+            //background-color: lighten(utils.$blue, 20%)
+
+    &__light-blue
+        @extend .button
+        background-color: utils.$medium-blue
+        color: utils.$blue
+        fill: utils.$blue
+        @include hover(utils.$medium-blue)
+        
+        //&:hover
+            //background-color: utils.$dark-blue
+            //background-color: darken(utils.$medium-blue, 20%)
+            //background-color: lighten(utils.$blue, 20%)
